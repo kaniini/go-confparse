@@ -208,7 +208,7 @@ get_value(char **pos, ConfigFile *cf, char *skipped)
 		start = p;
 
 		while (*p != '\0' && *p != '\t' && *p != '\r' && *p != '\n' &&
-		       *p != ' ' && *p != '/' && *p != '#' &&
+		       *p != ' ' && *p != '#' &&
 		       *p != ';' && *p != '{' && *p != '}')
 		{
 			p++;
