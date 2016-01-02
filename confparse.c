@@ -240,7 +240,7 @@ config_file_parse(const char *filename, char *confdata)
 	char *p, *val;
 	char c;
 
-	cf = malloc(sizeof *cf);
+	cf = calloc(sizeof *cf, 1);
 	cf->filename = strdup(filename);
 	cf->curline = 1;
 	cf->mem = confdata;
@@ -296,7 +296,7 @@ config_file_parse(const char *filename, char *confdata)
 			break;
 		}
 
-		ce = malloc(sizeof *ce);
+		ce = calloc(sizeof *ce, 1);
 		ce->fileptr = cf;
 		ce->varlinenum = cf->curline;
 		ce->varname = val;
