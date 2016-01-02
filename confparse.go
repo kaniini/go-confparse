@@ -6,25 +6,25 @@ import (
 )
 
 type ConfigFile struct {
-	filename string
-	entries *ConfigEntry
-	next *ConfigFile
+	Filename string
+	Entries *ConfigEntry
+	Next *ConfigFile
 }
 
 type ConfigEntry struct {
 	// variable and section line numbers
-	var_linenum int
-	sect_linenum int
+	VarLineNum int
+	SectLineNum int
 
 	// variable name and optional data section
-	varname string
-	vardata string
+	VarName string
+	VarData string
 
 	// child entries
-	entries *ConfigEntry
+	Entries *ConfigEntry
 
 	// next entry at same level
-	next *ConfigEntry
+	Next *ConfigEntry
 }
 
 func LoadConfigFile (filename string) *ConfigFile {
