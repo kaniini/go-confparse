@@ -28,7 +28,12 @@ type ConfigEntry struct {
 }
 
 func LoadConfigFile (filename string) *ConfigFile {
-	return WalkCTree(C.config_file_load(C.CString(filename)))
+	cfptr := C.config_file_load(C.CString(filename))
+	if cfptr != nil {
+		return WalkCTree(cfptr)
+	}
+
+	return nil
 }
 
 // Walk roots
